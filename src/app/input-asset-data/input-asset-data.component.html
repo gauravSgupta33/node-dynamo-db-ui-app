@@ -1,0 +1,38 @@
+<legend>Add Asset Form</legend>
+<form [formGroup]="assetForm" (ngSubmit)="onSubmit()">
+
+	<div class="form-group" [ngClass]="{ 'has-error': invalidName() }"> <!-- First Name -->
+		<label for="first_name" class="control-label">Name</label>
+		<input type="text" formControlName="name" class="form-control" id="name" name="name" placeholder="Toyota Accord">
+		<p *ngIf="invalidName()" id="name_error" class="help-block">{{this.serviceErrors.name || 'Invalid name.'}}</p>
+	</div>
+
+	<div class="form-group" [ngClass]="{ 'has-error': invalidDescription() }"> <!-- Last Name -->
+		<label for="description" class="control-label">Description</label>
+		<input type="text" formControlName="description" class="form-control" id="description" name="description" placeholder="Good Value">
+		<p *ngIf="invalidDescription()" id="description_error" class="help-block">{{this.serviceErrors.description || 'Invalid description.'}}</p>
+	</div>
+
+	<div class="form-group" [ngClass]="{ 'has-error': invalidType() }"> <!-- Type -->
+		<label for="type" class="control-label">Type</label>
+		<input type="text" formControlName="type" class="form-control" id="Type" name="type" placeholder="Automatic">
+		<p *ngIf="invalidType()" id="Type_error" class="help-block">{{this.serviceErrors.Type || 'Invalid Type.'}}</p>
+	</div>
+
+	<div class="form-group" [ngClass]="{ 'has-error': invalidFuelType() }"> <!-- Zip Code-->
+		<label for="fuelType" class="control-label">Fuel Type</label>
+		<input type="text" formControlName="fuelType" class="form-control" id="fuelType" name="fuelType" placeholder="Petrol">
+		<p *ngIf="invalidFuelType()" id="fuelType_error" class="help-block">{{this.serviceErrors.fuelType || 'Invalid fuel type.'}}</p>
+	</div>
+
+	<div class="form-group" [ngClass]="{ 'has-error': invalidManufacturer() }"> <!-- Manufacturer -->
+		<label for="manufacturer" class="control-label">Manufacturer</label>
+		<input type="text" formControlName="manufacturer" class="form-control" id="manufacturer" name="manufacturer" placeholder="Toyota">
+		<p *ngIf="invalidManufacturer()" id="manufacturer_error" class="help-block">{{this.serviceErrors.manufacturer || 'Invalid manufacturer.'}}</p>
+	</div>
+	
+	<div class="form-group has-error"> <!-- Register Button -->
+		<button type="submit" class="btn btn-primary">Add Asset</button>
+	</div>
+
+</form>	
